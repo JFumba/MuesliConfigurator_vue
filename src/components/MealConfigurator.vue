@@ -92,7 +92,8 @@ export default {
     },
     methods: {
       selectedOption(option) {
-
+        this.configuration[this.activConfigStep].selectedOption = option;
+        this.activConfigStep += 1;
       }
     }
 }
