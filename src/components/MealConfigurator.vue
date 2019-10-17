@@ -12,6 +12,10 @@
             </div>
             <div class="selection">
                 <h3>{{ configuration[activConfigStep].title }}</h3>
+                <MealConfiguratorOptions 
+                 :activeConfigStep="activConfigStep"
+                 :configuration="configuration"
+                 @chooseOption="selectOption"/>
             </div>
         </div>
     </div>
@@ -31,24 +35,24 @@ export default {
             title: 'Cereal base',
             selectedOption: {},
             options: [
-              { title: 'Pure Oat Flakes', img: '', price: 2.99 },
-              { title: 'Protein Flakes', img: '', price: 3.49 },
-              { title: 'Crunchy Coffee', img: '', price: 3.49 },
-              { title: 'Crunchy and Oat', img: '', price: 3.99 }
+              { title: 'Pure Oat Flakes', img: 'wheat.png', price: 2.99 },
+              { title: 'Protein Flakes', img: 'wheat.png', price: 3.49 },
+              { title: 'Crunchy Coffee', img: 'wheat.png', price: 3.49 },
+              { title: 'Crunchy and Oat', img: 'wheat.png', price: 3.99 }
             ]
           },
           {
             title: 'Fruit',
             selectedOption: {},
             options: [
-              { title: 'Apple', img: '', price: 0.99 },
-              { title: 'Fig', img: '', price: 1.49 },
-              { title: 'Apricot', img: '', price: 1.49 },
-              { title: 'Plum', img: '', price: 1.29 },
-              { title: 'Strawberry', img: '', price: 1.99 },
-              { title: 'Raspberry', img: '', price: 1.99 },
-              { title: 'Banana', img: '', price: 0.99 },
-              { title: 'Blueberry', img: '', price: 1.79 }
+              { title: 'Apple', img: 'apple.png', price: 0.99 },
+              { title: 'Fig', img: 'fig.png', price: 1.49 },
+              { title: 'Apricot', img: 'apricot.png', price: 1.49 },
+              { title: 'Plum', img: 'plum.png', price: 1.29 },
+              { title: 'Strawberry', img: 'strawberry.png', price: 1.99 },
+              { title: 'Raspberry', img: 'raspberry.png', price: 1.99 },
+              { title: 'Banana', img: 'banana.png', price: 0.99 },
+              { title: 'Blueberry', img: 'blueberry.png', price: 1.79 }
             ]
           },
           {
@@ -85,6 +89,11 @@ export default {
         MealConfiguratorProgress,
         MealConfiguratorOptions,
         MealConfiguratorOrder
+    },
+    methods: {
+      selectedOption(option) {
+
+      }
     }
 }
 </script>
