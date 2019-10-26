@@ -13,9 +13,13 @@
             <div class="selection">
                 <h3>{{ configuration[activConfigStep].title }}</h3>
                 <MealConfiguratorOptions 
+                 v-if="activConfigStep +1 < configuration.length"
                  :activeConfigStep="activConfigStep"
                  :configuration="configuration"
                  @chooseOption="selectOption"/>
+                 <MealConfiguratorOrder 
+                 v-else
+                 :configuration="configuration" />
             </div>
         </div>
     </div>
@@ -65,17 +69,17 @@ export default {
               { title: 'Walnuts', img: 'nut.png', price: 1.29 },
               { title: 'Cashew Nuts', img: 'cashew.png', price: 0.99 },
               { title: 'Coconut Flakes', img: 'coconut.png', price: 1.49 },
-              { title: 'Pecan Nuts', img: 'nut.png', price: 0.99 }
+              { title: 'Pecan Nuts', img: 'pecan.png', price: 0.99 }
             ]
           },
           {
             title: 'Chocolate',
             selectedOption: {},
             options: [
-              { title: 'Dark Chocolate', img: '', price: 1.49 },
-              { title: 'Chocolate Puffs', img: '', price: 1.49 },
-              { title: 'Espresso Chocs', img: '', price: 1.99 },
-              { title: 'White Chocolate', img: '', price: 1.49 }
+              { title: 'Dark Chocolate', img: 'chocolate.png', price: 1.49 },
+              { title: 'White Chocolate', img: 'white-chocolate.png', price: 1.49 },
+              { title: 'Espresso Chocs', img: 'espresso.png', price: 1.99 },
+              { title: 'Chocolate Puffs', img: 'choco-puff.png', price: 1.49 }
             ]
           },
           {
@@ -91,9 +95,19 @@ export default {
         MealConfiguratorOrder
     },
     methods: {
-      selectedOption(option) {
+      selectOption(option) {
         this.configuration[this.activConfigStep].selectedOption = option;
         this.activConfigStep += 1;
+
+        if(this.activConfigStep + 1 === this.configuration.length) {
+          let totalPrice = 0;
+          this.configuration.forEach(element => {
+            totalPrice += element.selectedOption.price;
+          });
+
+          this.configuration[this.activConfigStep]
+            .selectedOption.price = totalPrice.toFixed(2);
+        }
       }
     }
 }
