@@ -59,13 +59,13 @@ export default {
             title: 'Nuts and Seeds',
             selectedOption: {},
             options: [
-              { title: 'Sunflower Seeds', img: '', price: 0.49 },
-              { title: 'Pumpkin Seeds', img: '', price: 0.49 },
-              { title: 'Hazelnuts', img: '', price: 0.99 },
-              { title: 'Walnuts', img: '', price: 1.29 },
-              { title: 'Cashew Nuts', img: '', price: 0.99 },
-              { title: 'Coconut Flakes', img: '', price: 1.49 },
-              { title: 'Pecan Nuts', img: '', price: 0.99 }
+              { title: 'Sunflower Seeds', img: 'sunflower.png', price: 0.49 },
+              { title: 'Pumpkin Seeds', img: 'pumpkin-seed.png', price: 0.49 },
+              { title: 'Hazelnuts', img: 'hazelnut.png', price: 0.99 },
+              { title: 'Walnuts', img: 'nut.png', price: 1.29 },
+              { title: 'Cashew Nuts', img: 'cashew.png', price: 0.99 },
+              { title: 'Coconut Flakes', img: 'coconut.png', price: 1.49 },
+              { title: 'Pecan Nuts', img: 'nut.png', price: 0.99 }
             ]
           },
           {
